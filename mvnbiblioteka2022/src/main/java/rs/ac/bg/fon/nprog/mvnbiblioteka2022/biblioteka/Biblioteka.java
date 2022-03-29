@@ -5,18 +5,21 @@ import java.util.List;
 
 import rs.ac.bg.fon.nprog.mvnbiblioteka2022.biblioteka.interfejs.BibliotekaInterfejs;
 
+
+
 /**
  * Predstavlja implementaciju biblioteke sa knjigama.
  * 
  * Ima osnovne operacije unosa, brisanja i pretrage biblioteke.
  */
 public class Biblioteka implements BibliotekaInterfejs {
-	
+
 	/**
 	 * Lista sa svim knjigama u biblioteci. Inicijalozovana kao LinkedList
 	 */
 	private List<Knjiga> knjige = new LinkedList<Knjiga>();
 
+	
 	public void dodajKnjigu(Knjiga knjiga) {
 		if (knjiga == null)
 			throw new NullPointerException("Knjiga ne sme biti null");
@@ -27,6 +30,7 @@ public class Biblioteka implements BibliotekaInterfejs {
 		knjige.add(knjiga);
 	}
 
+	
 	public void obrisiKnjigu(Knjiga knjiga) {
 		if (knjiga == null)
 			throw new NullPointerException("Knjiga ne sme biti null");
@@ -34,10 +38,12 @@ public class Biblioteka implements BibliotekaInterfejs {
 		knjige.remove(knjiga);
 	}
 
+	
 	public List<Knjiga> vratiSveKnjige() {
 		return knjige;
 	}
 
+	
 	public List<Knjiga> pronadjiKnjigu(Autor autor, long isbn, String naslov, String izdavac) {
 		if (autor == null && isbn <= 0 && naslov == null && izdavac == null)
 			throw new IllegalArgumentException("Morate uneti bar jedan kriterijum");
